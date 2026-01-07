@@ -22,7 +22,7 @@
                             <div class="flex items-center">
                                 <div>
                                     <p class="text-gray-900 whitespace-no-wrap font-medium">{{ $adoption->user->name }}</p>
-                                    <p class="text-gray-500 whitespace-no-wrap text-xs">{{ $adoption->user->email }}</p>
+                                    <p class="text-gray-600 whitespace-no-wrap text-xs">{{ $adoption->user->email }}</p>
                                 </div>
                             </div>
                         </td>

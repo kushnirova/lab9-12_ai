@@ -49,8 +49,8 @@
 
             <div>
                 <label for="image_path" class="block text-sm font-medium text-gray-700">Zdjęcie</label>
-                <input type="file" name="image_path" id="image_path" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                <p class="mt-1 text-xs text-gray-500">PNG, JPG, GIF do 2MB</p>
+                <input type="file" name="image_path" id="image_path" accept="image/*" class="mt-1 block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                <p class="mt-1 text-xs text-gray-600">PNG, JPG, GIF do 2MB</p>
                 @error('image_path') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
             </div>
 

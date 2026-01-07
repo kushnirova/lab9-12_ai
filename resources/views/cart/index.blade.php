@@ -15,11 +15,11 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Produkt</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ilość</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Razem</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Akcje</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Produkt</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Cena</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Ilość</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Razem</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Akcje</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -31,7 +31,7 @@
                                 <div class="text-sm font-medium text-gray-900">{{ $details['name'] }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">{{ number_format($details['price'], 2) }} zł</div>
+                                <div class="text-sm text-gray-600">{{ number_format($details['price'], 2) }} zł</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('cart.update', $id) }}" method="POST" class="flex items-center">
@@ -71,7 +71,7 @@
         </div>
     @else
         <div class="bg-white rounded-lg shadow p-6 text-center">
-            <p class="text-gray-500 text-lg mb-4">Koszyk na razie jest pusty.</p>
+            <p class="text-gray-600 text-lg mb-4">Koszyk na razie jest pusty.</p>
             <a href="{{ route('shop.index') }}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Wróć do sklepu</a>
         </div>
     @endif

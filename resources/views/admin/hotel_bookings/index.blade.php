@@ -73,7 +73,7 @@
             </tbody>
         </table>
         @if($bookings->isEmpty())
-            <div class="p-4 text-center text-gray-500">Brak rezerwacji w systemie.</div>
+            <div class="p-4 text-center text-gray-600">Brak rezerwacji w systemie.</div>
         @endif
     </div>
 </div>

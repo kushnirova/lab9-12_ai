@@ -16,14 +16,14 @@
                     <label for="start_date" class="block text-gray-700 font-bold mb-2">Data od</label>
                     <input type="date" name="start_date" id="start_date" class="w-full border border-gray-300 p-2 rounded @error('start_date') border-red-500 @enderror" value="{{ old('start_date') }}" required>
                     @error('start_date')
-                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                        <p class="text-red-600 text-xs italic mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
                     <label for="end_date" class="block text-gray-700 font-bold mb-2">Data do</label>
                     <input type="date" name="end_date" id="end_date" class="w-full border border-gray-300 p-2 rounded @error('end_date') border-red-500 @enderror" value="{{ old('end_date') }}" required>
                     @error('end_date')
-                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                        <p class="text-red-600 text-xs italic mt-1">{{ $message }}</p>
                     @enderror
                 </div>
             </div>

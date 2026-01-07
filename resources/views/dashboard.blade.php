@@ -45,7 +45,7 @@
                                     <p class="text-sm font-medium text-blue-600 truncate">
                                         {{ $booking->guinea_pig_name }}
                                     </p>
-                                    <p class="text-sm text-gray-500">
+                                    <p class="text-sm text-gray-600">
                                         {{ $booking->start_date }} - {{ $booking->end_date }}
                                     </p>
                                 </div>

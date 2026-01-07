@@ -10,7 +10,7 @@
                 <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
                 <input type="email" name="email" id="email" class="w-full border border-gray-300 p-2 rounded" required>
                 @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
             
@@ -21,7 +21,7 @@
             
             <div class="flex items-center justify-between">
                 <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Zaloguj się</button>
-                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{ route('register') }}">
+                <a class="inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800" href="{{ route('register') }}">
                     Zarejestruj się
                 </a>
             </div>
