@@ -13,11 +13,32 @@
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="{{ route('home') }}" class="text-2xl font-bold text-blue-600">Fundacja Świnek</a>
             <ul class="flex space-x-4">
-                <li><a href="{{ route('adoptions.index') }}" class="hover:text-blue-600">Adopcje</a></li>
-                <li><a href="{{ route('hotel.index') }}" class="hover:text-blue-600">Hotel</a></li>
-                <li><a href="{{ route('shop.index') }}" class="hover:text-blue-600">Sklep</a></li>
+                @if(!auth()->check() || (auth()->user()->role !== 'admin' && auth()->user()->role !== 'employee'))
+                    <li><a href="{{ route('adoptions.index') }}" class="hover:text-blue-600">Adopcje</a></li>
+                    <li><a href="{{ route('hotel.index') }}" class="hover:text-blue-600">Hotel</a></li>
+                    <li><a href="{{ route('shop.index') }}" class="hover:text-blue-600">Sklep</a></li>
+                @endif
+                @if(auth()->check() && auth()->user()->role === 'client')
+                     <li>
+                        <a href="{{ route('cart.index') }}" class="text-purple-600 hover:text-purple-800 font-semibold flex items-center">
+                            Koszyk
+                            @if(session('cart'))
+                                <span class="ml-1 bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-200 dark:text-purple-900">{{ count(session('cart')) }}</span>
+                            @endif
+                        </a>
+                    </li>
+                @endif
                 @auth
-                    <li><a href="{{ route('dashboard') }}" class="hover:text-blue-600">Panel</a></li>
+                    @if(auth()->user()->role === 'employee')
+                        <li><a href="{{ route('admin.adoptions.index') }}" class="hover:text-blue-600">Zarządzaj Adopcjami</a></li>
+                        <li><a href="{{ route('admin.guinea_pigs.index') }}" class="hover:text-blue-600">Zarządzaj Świnkami</a></li>
+                        <li><a href="{{ route('admin.products.index') }}" class="hover:text-blue-600">Zarządzaj Sklepem</a></li>
+                        <li><a href="{{ route('admin.hotel_bookings.index') }}" class="hover:text-blue-600">Zarządzaj Rezerwacjami</a></li>
+                    @endif
+                    
+                    @if(auth()->user()->role === 'client')
+                         <li><a href="{{ route('dashboard') }}" class="hover:text-blue-600">Panel</a></li>
+                    @endif
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="inline">
                             @csrf
@@ -40,11 +61,5 @@
 
         @yield('content')
     </main>
-
-    <footer class="bg-gray-800 text-white py-8 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; {{ date('Y') }} Fundacja Świnek Morskich. Wszelkie prawa zastrzeżone.</p>
-        </div>
-    </footer>
 </body>
 </html>

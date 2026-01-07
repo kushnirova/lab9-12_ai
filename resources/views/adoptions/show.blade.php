@@ -4,7 +4,7 @@
     <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto">
         <div class="md:flex">
             <div class="md:w-1/2">
-                <img src="{{ $guineaPig->image_path }}" alt="Świnka {{ $guineaPig->name }}, rasa {{ $guineaPig->category->name }}" class="w-full h-full object-cover">
+                <img src="{{ asset($guineaPig->image_path) }}" alt="Świnka {{ $guineaPig->name }}, rasa {{ $guineaPig->category->name }}" class="w-full h-full object-cover">
             </div>
             <div class="p-8 md:w-1/2">
                 <h1 class="text-3xl font-bold mb-4">{{ $guineaPig->name }}</h1>

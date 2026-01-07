@@ -19,7 +19,12 @@
                 <input type="password" name="password" id="password" class="w-full border border-gray-300 p-2 rounded" required>
             </div>
             
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Zaloguj się</button>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Zaloguj się</button>
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{ route('register') }}">
+                    Zarejestruj się
+                </a>
+            </div>
         </form>
         
         <div class="mt-4 text-sm text-gray-600">

@@ -10,10 +10,19 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $adoptions = $user->role === 'client' 
-            ? \App\Models\Adoption::where('user_id', $user->id)->get() 
+
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.users.index');
+        }
+
+        if ($user->role === 'employee') {
+            return redirect()->route('admin.adoptions.index');
+        }
+
+        $adoptions = $user->role === 'client'
+            ? \App\Models\Adoption::where('user_id', $user->id)->get()
             : \App\Models\Adoption::all();
-            
+
         $bookings = $user->role === 'client'
             ? \App\Models\HotelBooking::where('user_id', $user->id)->get()
             : \App\Models\HotelBooking::all();

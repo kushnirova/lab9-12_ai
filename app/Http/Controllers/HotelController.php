@@ -35,6 +35,6 @@ class HotelController extends Controller
             'notes' => $request->notes,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Booking request submitted!');
+        return redirect()->route('dashboard')->with('success', 'Wniosek o rezerwację wysłany!');
     }
 }

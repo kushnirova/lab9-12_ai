@@ -10,7 +10,16 @@
                 <p class="text-gray-600 mb-2 text-sm">{{ $product->description }}</p>
                 <div class="flex justify-between items-center mt-4">
                     <span class="text-xl font-bold text-purple-600">{{ $product->price }} PLN</span>
-                    <button class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">Dodaj do koszyka</button>
+                    @auth
+                        @if(auth()->user()->role === 'client')
+                             <form action="{{ route('cart.add', $product) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">Dodaj do koszyka</button>
+                            </form>
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}" class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">Zaloguj się aby kupić</a>
+                    @endauth
                 </div>
             </div>
         @endforeach

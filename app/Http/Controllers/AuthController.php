@@ -26,9 +26,35 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Błędny adres email lub hasło.',
         ])->onlyInput('email');
     }
+
+    public function registerForm()
+    {
+        return view('auth.register');
+    }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = \App\Models\User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => \Illuminate\Support\Facades\Hash::make($request->password),
+            'role' => 'client',
+        ]);
+
+        Auth::login($user);
+
+        return redirect('/dashboard');
+    }
+
 
     public function logout(Request $request)
     {

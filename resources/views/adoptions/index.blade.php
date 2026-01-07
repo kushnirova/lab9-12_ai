@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         @foreach($guineaPigs as $pig)
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="{{ $pig->image_path }}" alt="Świnka {{ $pig->name }}, rasa {{ $pig->category->name }}" class="w-full h-48 object-cover">
+                <img src="{{ asset($pig->image_path) }}" alt="Świnka {{ $pig->name }}, rasa {{ $pig->category->name }}" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-2">{{ $pig->name }}</h2>
                     <p class="text-gray-600 mb-2">Wiek: {{ $pig->age }} lat</p>

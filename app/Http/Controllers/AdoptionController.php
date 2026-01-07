@@ -30,7 +30,7 @@ class AdoptionController extends Controller
             'notes' => $request->notes,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Application submitted!');
+        return redirect()->route('dashboard')->with('success', 'Wniosek został wysłany!');
     }
 
     public function adminIndex()
@@ -51,6 +51,6 @@ class AdoptionController extends Controller
             $adoption->guineaPig->update(['status' => 'adopted']);
         }
 
-        return back()->with('success', 'Status updated!');
+        return back()->with('success', 'Status zaktualizowany!');
     }
 }
